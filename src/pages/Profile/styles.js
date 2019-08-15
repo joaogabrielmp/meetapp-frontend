@@ -58,17 +58,5 @@ export const Container = styled.div`
         background: ${darken(0.08, '#d44059')};
       }
     }
-
-    a {
-      color: #fff;
-      margin-top: 15px;
-      font-size: 16px;
-      opacity: 0.8;
-      font-weight: bold;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
   }
 `;
