@@ -45,6 +45,7 @@ export const Profile = styled.div`
       margin-top: 2px;
       font-size: 12px;
       color: #999;
+      font-weight: bold;
     }
   }
 `;
