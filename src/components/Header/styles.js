@@ -7,12 +7,19 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 64px;
+  height: 85px;
   max-width: 900px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  nav {
+    img {
+      height: 40px;
+      width: 40px;
+    }
+  }
 
   aside {
     display: flex;

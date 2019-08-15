@@ -11,7 +11,6 @@ export default function Header() {
       <Content>
         <nav>
           <Link to="/dashboard">
-            {/* DASHBOARD */}
             <img src={logo} alt="Meetapp" />
           </Link>
         </nav>
