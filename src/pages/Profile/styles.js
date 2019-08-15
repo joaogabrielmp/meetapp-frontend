@@ -9,8 +9,10 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    align-items: flex-end;
 
     input {
+      width: 100%;
       background: rgba(0, 0, 0, 0.1);
       border: 0;
       border-radius: 4px;
@@ -36,6 +38,7 @@ export const Container = styled.div`
       height: 1px;
       background: rgba(255, 255, 255, 0.2);
       margin: 10px 0 20px;
+      width: 100%;
     }
 
     button {
@@ -43,7 +46,6 @@ export const Container = styled.div`
       justify-content: center;
       align-items: center;
       width: 150px;
-
       margin: 5px 0 0;
       height: 44px;
       background: #d44059;
@@ -56,6 +58,10 @@ export const Container = styled.div`
 
       &:hover {
         background: ${darken(0.08, '#d44059')};
+      }
+
+      svg {
+        margin-right: 10px;
       }
     }
   }
