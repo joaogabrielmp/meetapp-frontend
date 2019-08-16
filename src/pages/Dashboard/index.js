@@ -58,7 +58,7 @@ export default function Dashboard() {
             <Meetup
               key={String(meetup.id)}
               past={meetup.past}
-              onClick={handleEdit}
+              onClick={meetup.past ? false : handleEdit}
             >
               <strong>{meetup.title}</strong>
               <div>
