@@ -82,6 +82,7 @@ export const Meetup = styled.li`
 
   &:hover {
     background: rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
   }
 
   opacity: ${props => (props.past ? 0.5 : 1)};
