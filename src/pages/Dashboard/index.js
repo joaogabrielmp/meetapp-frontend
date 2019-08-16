@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import pt from 'date-fns/locale/pt';
 import { format, parseISO, isBefore } from 'date-fns';
 import { toast } from 'react-toastify';
@@ -15,13 +15,12 @@ import { Container, Button, Meetup } from './styles';
 
 export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
-  const [page, setPage] = useState(1);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadSchedule() {
       try {
-        const response = await api.get('organizer', { params: { page } });
+        const response = await api.get('organizer');
         const data = await response.data.map(meetup => ({
           ...meetup,
           defaultData: meetup.date,
@@ -38,21 +37,7 @@ export default function Dashboard() {
     }
 
     loadSchedule();
-  }, [page]);
-
-  // function handlePrev() {
-  //   if (page > 1) {
-  //     setPage(page - 1);
-  //   }
-  // }
-
-  // function handleNext() {
-  //   if (meetups.length >= 9) {
-  //     setPage(page + 1);
-  //   }
-  // }
-
-  console.log(meetups);
+  }, []);
 
   return (
     <Container>
