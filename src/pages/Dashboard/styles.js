@@ -86,17 +86,22 @@ export const Meetup = styled.li`
 
   opacity: ${props => (props.past ? 0.5 : 1)};
 
-  strong {
-    font-size: 18px;
-    font-weight: bold;
-  }
+  div {
+    display: flex;
+    align-items: center;
 
-  span {
-    color: #999;
-    font-weight: bold;
-  }
+    strong {
+      font-size: 18px;
+      font-weight: bold;
+    }
 
-  svg {
-    margin-left: 10px;
+    span {
+      color: #999;
+      font-weight: bold;
+    }
+
+    svg {
+      margin-left: 10px;
+    }
   }
 `;

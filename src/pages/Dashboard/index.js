@@ -22,20 +22,26 @@ export default function Dashboard() {
         <ul>
           <Meetup past>
             <strong>Meetup de React Native</strong>
-            <span>Esse meetup já ocorreu</span>
-            <MdChevronRight size={30} />
+            <div>
+              <span>Esse meetup já ocorreu</span>
+              <MdChevronRight size={30} />
+            </div>
           </Meetup>
 
           <Meetup>
             <strong>Meetup de NodeJS</strong>
-            <span>17 de Julho, às 13h</span>
-            <MdChevronRight size={30} />
+            <div>
+              <span>17 de Julho, às 13h</span>
+              <MdChevronRight size={30} />
+            </div>
           </Meetup>
 
           <Meetup>
             <strong>Meetup de ReactJS</strong>
-            <span>30 de Agosto, às 20h</span>
-            <MdChevronRight size={30} />
+            <div>
+              <span>30 de Agosto, às 20h</span>
+              <MdChevronRight size={30} />
+            </div>
           </Meetup>
         </ul>
       ) : (
