@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import pt from 'date-fns/locale/pt';
 import { format, parseISO, isBefore } from 'date-fns';
 import { toast } from 'react-toastify';
@@ -15,7 +15,7 @@ import { Container, Button, Meetup } from './styles';
 
 export default function Dashboard() {
   const [meetups, setMeetups] = useState([]);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadSchedule() {
@@ -39,6 +39,10 @@ export default function Dashboard() {
     loadSchedule();
   }, []);
 
+  function handleEdit() {
+    alert('teste');
+  }
+
   return (
     <Container>
       <header>
@@ -51,7 +55,11 @@ export default function Dashboard() {
       {meetups.length > 0 ? (
         <ul>
           {meetups.map(meetup => (
-            <Meetup key={String(meetup.id)} past={meetup.past}>
+            <Meetup
+              key={String(meetup.id)}
+              past={meetup.past}
+              onClick={handleEdit}
+            >
               <strong>{meetup.title}</strong>
               <div>
                 <span>
