@@ -24,6 +24,24 @@ export const Container = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 15px;
   }
+
+  h3 {
+    color: #fff;
+    font-weight: bold;
+    font-size: 32px;
+    padding: 20px;
+
+    margin: auto;
+    margin-top: 25px;
+
+    display: flex;
+    align-items: center;
+
+    width: 60%;
+    height: 62px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.1);
+  }
 `;
 
 export const Button = styled.button`
