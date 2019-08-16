@@ -86,14 +86,14 @@ export const Meetup = styled.li`
 
   opacity: ${props => (props.past ? 0.5 : 1)};
 
+  strong {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
   div {
     display: flex;
     align-items: center;
-
-    strong {
-      font-size: 18px;
-      font-weight: bold;
-    }
 
     span {
       color: #999;
