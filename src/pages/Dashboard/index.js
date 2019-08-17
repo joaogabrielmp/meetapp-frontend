@@ -18,7 +18,7 @@ export default function Dashboard() {
   // const dispatch = useDispatch();
 
   useEffect(() => {
-    async function loadSchedule() {
+    async function loadMeetup() {
       try {
         const response = await api.get('organizer');
         const data = await response.data.map(meetup => ({
@@ -36,7 +36,7 @@ export default function Dashboard() {
       }
     }
 
-    loadSchedule();
+    loadMeetup();
   }, []);
 
   function handleEdit() {
