@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
 import { MdCameraAlt } from 'react-icons/md';
 import { de } from 'date-fns/esm/locale';
@@ -14,16 +14,40 @@ export default function ImageInput() {
 
   const ref = useRef();
 
-  async function handleChange(e) {}
+  useEffect(() => {
+    if (ref.current) {
+      registerField({
+        name: 'file_id',
+        ref: ref.current,
+        path: 'dataset.file',
+      });
+    }
+  }, [ref, registerField]);
+
+  async function handleChange(e) {
+    const data = new FormData();
+
+    data.append('file', e.target.files[0]);
+
+    const response = await api.post('files', data);
+
+    const { id, url } = response.data;
+
+    setFile(id);
+    setPreview(url);
+  }
 
   return (
     <Container>
       <label htmlFor="image">
-        <div>
-          <MdCameraAlt size={55} />
-          <strong>Selecione a imagem</strong>
-        </div>
-
+        {preview ? (
+          <img src={preview} alt="" />
+        ) : (
+          <div>
+            <MdCameraAlt size={55} />
+            <strong>Selecione a imagem</strong>
+          </div>
+        )}
         <input
           type="file"
           id="image"
