@@ -1,20 +1,43 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { Form, Input } from '@rocketseat/unform';
 import PropTypes from 'prop-types';
+import { MdAddCircleOutline } from 'react-icons/md';
 
 import ImageInput from '~/components/ImageInput';
 
 import { Container } from '../styles';
 
-export default function New({ match }) {
-  const meetupId = Number(match.params.id);
-  const meetups = useSelector(state => state.meetup.meetups);
+export default function New() {
+  const loading = useSelector(state => state.user.loading);
+  const dispatch = useDispatch();
 
-  const meetup = meetups.find(m => m.id === meetupId);
+  function handleSubmit(data) {
+    // dispatch(updateProfileRequest(data));
+  }
 
   return (
     <Container>
-      <ImageInput name="file" />
+      <Form onSubmit={handleSubmit}>
+        <ImageInput name="file" />
+
+        <Input name="title" placeholder="Título do meetup" />
+        <Input name="description" placeholder="Descrição completa" />
+
+        <Input name="date" placeholder="Data do meetup" />
+        <Input name="location" placeholder="Localização" />
+
+        <button type="submit">
+          {loading ? (
+            'Salvando...'
+          ) : (
+            <>
+              <MdAddCircleOutline size={20} />
+              Salvar meetup
+            </>
+          )}
+        </button>
+      </Form>
     </Container>
   );
 }
