@@ -19,6 +19,8 @@ export function* fetchMeetup() {
       }),
     }));
 
+    console.log(`saga${meetups[0]}`);
+
     yield put(fetchMeetupSuccess(meetups));
   } catch (error) {
     toast.error(`Erro ao listar meetups`);
@@ -26,4 +28,4 @@ export function* fetchMeetup() {
   }
 }
 
-export default all([takeLatest('@meetapp/FETCH_MEETUPS_REQUEST', fetchMeetup)]);
+export default all([takeLatest('@meetup/FETCH_MEETUPS_REQUEST', fetchMeetup)]);

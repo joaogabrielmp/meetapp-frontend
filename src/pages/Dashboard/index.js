@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import pt from 'date-fns/locale/pt';
-import { format, parseISO, isBefore } from 'date-fns';
 import { toast } from 'react-toastify';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MdAddCircleOutline, MdChevronRight } from 'react-icons/md';
-import { storeMeetups } from '~/store/modules/meetup/actions';
-
-import api from '~/services/api';
+import { fetchMeetupRequest } from '~/store/modules/meetup/actions';
 
 import { Container, Button, Meetup } from './styles';
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const [meetups, setMeetups] = useState([]);
+  const meetups = useSelector(state => state.meetups);
+
+  console.log(`teste ${meetups}`);
 
   useEffect(() => {
     async function loadMeetup() {
       try {
-        const response = await api.get('organizer');
-        const data = await response.data.map(meetup => ({
-          ...meetup,
-          defaultData: meetup.date,
-          past: isBefore(parseISO(meetup.date), new Date()),
-          data: format(parseISO(meetup.date), "dd 'de' MMMM',' 'às' HH'h'", {
-            locale: pt,
-          }),
-        }));
-
-        setMeetups(data);
-        dispatch(storeMeetups(data));
+        dispatch(fetchMeetupRequest());
       } catch (error) {
         toast.error('Houve um erro ao carregar os meetups');
       }
@@ -49,7 +36,7 @@ export default function Dashboard() {
           </Button>
         </Link>
       </header>
-      {meetups.length > 0 ? (
+      {meetups ? (
         <ul>
           {meetups.map(meetup => (
             <Link key={String(meetup.id)} to={`/meetup/${meetup.id}`}>
