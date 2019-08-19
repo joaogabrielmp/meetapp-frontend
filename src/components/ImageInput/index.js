@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
 import { MdCameraAlt } from 'react-icons/md';
-import { de } from 'date-fns/esm/locale';
 import api from '~/services/api';
 
 import { Container } from './styles';
