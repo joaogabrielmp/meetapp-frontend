@@ -11,7 +11,8 @@ export const Container = styled.div`
     margin-top: 30px;
     align-items: flex-end;
 
-    input {
+    input,
+    textarea {
       width: 100%;
       background: rgba(0, 0, 0, 0.1);
       border: 0;
@@ -27,15 +28,9 @@ export const Container = styled.div`
     }
 
     textarea {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.1);
-      border: 0;
-      border-radius: 4px;
-      height: 150px;
-      padding: 15px 15px;
-      color: #fff;
-      margin: 0 0 10px;
       resize: none;
+      height: 200px;
+      padding: 15px;
 
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);

@@ -34,7 +34,7 @@ export default function New() {
 
         <Input name="title" placeholder="Título do meetup" />
         <Input name="description" placeholder="Descrição completa" multiline />
-        <DatePicker name="date" placeholder="Date" />
+        <DatePicker name="date" placeholder="Data do meetup" />
         <Input name="location" placeholder="Localização" />
 
         <button type="submit">
