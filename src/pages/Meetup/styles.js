@@ -32,7 +32,7 @@ export const Container = styled.div`
       border: 0;
       border-radius: 4px;
       height: 150px;
-      padding: 0 15px;
+      padding: 10px 15px;
       color: #fff;
       margin: 0 0 10px;
 
