@@ -11,12 +11,10 @@ export default function ImageInput() {
   return (
     <Container>
       <label htmlFor="image">
-        <>
-          <div>
-            <MdCameraAlt size={55} />
-            <strong>Selecione a imagem</strong>
-          </div>
-        </>
+        <div>
+          <MdCameraAlt size={55} />
+          <strong>Selecione a imagem</strong>
+        </div>
 
         <input
           type="file"
