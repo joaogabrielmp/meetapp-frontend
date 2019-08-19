@@ -48,7 +48,7 @@ export const Container = styled.div`
       font-weight: bold;
     }
 
-    button {
+    > button {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -71,5 +71,9 @@ export const Container = styled.div`
         margin-right: 10px;
       }
     }
+  }
+
+  #react-datepicker-wrapper > div {
+    width: 100%;
   }
 `;

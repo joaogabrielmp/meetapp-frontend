@@ -2,12 +2,21 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { MdAddCircleOutline } from 'react-icons/md';
+import * as Yup from 'yup';
 
 import ImageInput from '~/components/ImageInput';
+import DatePicker from '~/components/DatePicker';
 
 import { Container } from '../styles';
 
 import { newMeetupRequest } from '~/store/modules/meetup/actions';
+
+const schema = Yup.object().shape({
+  file_id: Yup.number().required(),
+  title: Yup.string().required('Insira o título do meetup'),
+  description: Yup.string().required('Descreva o seu meetup'),
+  location: Yup.string().required('Insira o local'),
+});
 
 export default function New() {
   const loading = useSelector(state => state.user.loading);
@@ -19,7 +28,7 @@ export default function New() {
         file_id,
         title,
         description,
-        '2019-08-23T15:00:00-03:00',
+        '2019-08-27T15:00:00-03:00',
         location
       )
     );
@@ -27,7 +36,7 @@ export default function New() {
 
   return (
     <Container>
-      <Form onSubmit={handleSubmit}>
+      <Form schema={schema} onSubmit={handleSubmit}>
         <ImageInput name="file" />
 
         <Input name="title" placeholder="Título do meetup" />
