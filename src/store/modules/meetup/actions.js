@@ -4,10 +4,10 @@ export function fetchMeetupRequest() {
   };
 }
 
-export function fetchMeetupSuccess({ data }) {
+export function fetchMeetupSuccess(meetups) {
   return {
     type: '@meetup/FETCH_MEETUPS_SUCCESS',
-    payload: data,
+    payload: { meetups },
   };
 }
 

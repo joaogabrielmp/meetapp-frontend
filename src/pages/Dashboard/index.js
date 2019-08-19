@@ -9,9 +9,7 @@ import { Container, Button, Meetup } from './styles';
 
 export default function Dashboard() {
   const dispatch = useDispatch();
-  const meetups = useSelector(state => state.meetups);
-
-  console.log(`teste ${meetups}`);
+  const meetups = useSelector(state => state.meetup.meetups);
 
   useEffect(() => {
     async function loadMeetup() {
