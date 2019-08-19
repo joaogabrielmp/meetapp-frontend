@@ -39,8 +39,8 @@ export default function Dashboard() {
     loadMeetup();
   }, []);
 
-  function handleEdit() {
-    alert('teste');
+  function handleEdit(meetup) {
+    alert(meetup.id);
   }
 
   return (
@@ -58,7 +58,13 @@ export default function Dashboard() {
             <Meetup
               key={String(meetup.id)}
               past={meetup.past}
-              onClick={meetup.past ? undefined : handleEdit}
+              onClick={
+                meetup.past
+                  ? undefined
+                  : () => {
+                      handleEdit(meetup);
+                    }
+              }
             >
               <strong>{meetup.title}</strong>
               <div>
