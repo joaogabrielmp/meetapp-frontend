@@ -14,15 +14,15 @@ export default function ImageInput() {
 
   const ref = useRef();
 
-  // useEffect(() => {
-  //   if (ref.current) {
-  //     registerField({
-  //       name: 'file_id',
-  //       ref: ref.current,
-  //       path: 'dataset.file',
-  //     });
-  //   }
-  // }, [ref, registerField]);
+  useEffect(() => {
+    if (ref.current) {
+      registerField({
+        name: 'file_id',
+        ref: ref.current,
+        path: 'dataset.file',
+      });
+    }
+  }, [ref.current]); // eslint-disable-line
 
   async function handleChange(e) {
     const data = new FormData();
