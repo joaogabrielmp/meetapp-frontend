@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import pt from 'date-fns/locale/pt';
 import { format, parseISO, isBefore } from 'date-fns';
 import { toast } from 'react-toastify';
-
+import { useDispatch } from 'react-redux';
 import { MdAddCircleOutline, MdChevronRight } from 'react-icons/md';
+import { storeMeetups } from '~/store/modules/meetup/actions';
 
 import api from '~/services/api';
-
-// import {} from '~/store/modules/meetup/actions';
 
 import { Container, Button, Meetup } from './styles';
 
 export default function Dashboard() {
+  const dispatch = useDispatch();
   const [meetups, setMeetups] = useState([]);
-  // const dispatch = useDispatch();
 
   useEffect(() => {
     async function loadMeetup() {
@@ -31,49 +29,40 @@ export default function Dashboard() {
         }));
 
         setMeetups(data);
+        dispatch(storeMeetups(data));
       } catch (error) {
         toast.error('Houve um erro ao carregar os meetups');
       }
     }
 
     loadMeetup();
-  }, []);
-
-  function handleEdit(meetup) {
-    alert(meetup.id);
-  }
+  }, [dispatch]);
 
   return (
     <Container>
       <header>
         <h2>Meus meetups</h2>
-        <Button>
-          <MdAddCircleOutline size={20} />
-          Novo meetup
-        </Button>
+        <Link to="/meetup">
+          <Button>
+            <MdAddCircleOutline size={20} />
+            Novo meetup
+          </Button>
+        </Link>
       </header>
       {meetups.length > 0 ? (
         <ul>
           {meetups.map(meetup => (
-            <Meetup
-              key={String(meetup.id)}
-              past={meetup.past}
-              onClick={
-                meetup.past
-                  ? undefined
-                  : () => {
-                      handleEdit(meetup);
-                    }
-              }
-            >
-              <strong>{meetup.title}</strong>
-              <div>
-                <span>
-                  {meetup.past ? 'Esse meetup já ocorreu' : meetup.data}
-                </span>
-                <MdChevronRight size={30} />
-              </div>
-            </Meetup>
+            <Link key={String(meetup.id)} to={`/meetup/${meetup.id}`}>
+              <Meetup past={meetup.past}>
+                <strong>{meetup.title}</strong>
+                <div>
+                  <span>
+                    {meetup.past ? 'Esse meetup já ocorreu' : meetup.data}
+                  </span>
+                  <MdChevronRight size={30} />
+                </div>
+              </Meetup>
+            </Link>
           ))}
         </ul>
       ) : (
