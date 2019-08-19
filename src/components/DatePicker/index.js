@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import ReactDatePicker from 'react-datepicker';
-import PropTypes from 'prop-types';
+
 import { useField } from '@rocketseat/unform';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -19,33 +19,24 @@ export default function DatePicker({ name, placeholder }) {
         pickerRef.clear();
       },
     });
-  }, [ref.current, fieldName]); // eslint-disable-line
+    // eslint-disable-next-line
+  }, [ref.current, fieldName]);
 
   return (
     <>
       <ReactDatePicker
-        selected={selected}
         name={fieldName}
-        ref={ref}
+        selected={selected}
         onChange={date => setSelected(date)}
         minDate={new Date()}
-        placeholderText={placeholder}
         showTimeSelect
         timeFormat="HH:mm"
-        timeIntervals={60}
-        dateFormat="MMMM d, yyyy h:mm aa"
-        timeCaption="time"
+        dateFormat="dd/MM/yyyy - HH:mm"
+        ref={ref}
+        placeholderText={placeholder}
+        autoComplete="off"
       />
       {error && <span>{error}</span>}
     </>
   );
 }
-
-DatePicker.propTypes = {
-  name: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-};
-
-DatePicker.defaultProps = {
-  placeholder: '',
-};

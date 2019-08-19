@@ -15,6 +15,7 @@ const schema = Yup.object().shape({
   file_id: Yup.number().required(),
   title: Yup.string().required('Insira o título do meetup'),
   description: Yup.string().required('Descreva o seu meetup'),
+  date: Yup.date().required('Date is required'),
   location: Yup.string().required('Insira o local'),
 });
 
@@ -22,16 +23,8 @@ export default function New() {
   const loading = useSelector(state => state.user.loading);
   const dispatch = useDispatch();
 
-  function handleSubmit({ file_id, title, description, location }) {
-    dispatch(
-      newMeetupRequest(
-        file_id,
-        title,
-        description,
-        '2019-08-27T15:00:00-03:00',
-        location
-      )
-    );
+  function handleSubmit({ file_id, title, description, date, location }) {
+    dispatch(newMeetupRequest(file_id, title, description, date, location));
   }
 
   return (
@@ -40,13 +33,8 @@ export default function New() {
         <ImageInput name="file" />
 
         <Input name="title" placeholder="Título do meetup" />
-        <Input
-          name="description"
-          placeholder="Descrição completa"
-          multiline
-          rows="4"
-        />
-        <Input name="date" placeholder="Data do meetup" />
+        <Input name="description" placeholder="Descrição completa" multiline />
+        <DatePicker name="date" placeholder="Date" />
         <Input name="location" placeholder="Localização" />
 
         <button type="submit">
