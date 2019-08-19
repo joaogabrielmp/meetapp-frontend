@@ -35,6 +35,7 @@ export const Container = styled.div`
       padding: 15px 15px;
       color: #fff;
       margin: 0 0 10px;
+      resize: none;
 
       &::placeholder {
         color: rgba(255, 255, 255, 0.7);
@@ -71,9 +72,5 @@ export const Container = styled.div`
         margin-right: 10px;
       }
     }
-  }
-
-  #react-datepicker-wrapper > div {
-    width: 100%;
   }
 `;
