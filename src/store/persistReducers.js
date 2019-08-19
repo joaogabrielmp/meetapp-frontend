@@ -4,7 +4,7 @@ import { persistReducer } from 'redux-persist';
 export default reducers => {
   const persistedReducer = persistReducer(
     {
-      key: 'meetapp',
+      key: 'meetapp-web',
       storage,
       whitelist: ['auth', 'user', 'meetup'],
     },
