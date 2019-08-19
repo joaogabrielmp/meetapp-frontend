@@ -27,7 +27,7 @@ export default function Dashboard() {
     <Container>
       <header>
         <h2>Meus meetups</h2>
-        <Link to="/meetup">
+        <Link to="/meetup/new">
           <Button>
             <MdAddCircleOutline size={20} />
             Novo meetup
@@ -37,7 +37,7 @@ export default function Dashboard() {
       {meetups ? (
         <ul>
           {meetups.map(meetup => (
-            <Link key={String(meetup.id)} to={`/meetup/${meetup.id}`}>
+            <Link key={String(meetup.id)} to={`/meetup/edit/${meetup.id}`}>
               <Meetup past={meetup.past}>
                 <strong>{meetup.title}</strong>
                 <div>
