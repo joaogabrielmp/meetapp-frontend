@@ -13,6 +13,6 @@ export function fetchMeetupSuccess(meetups) {
 
 export function failureMeetup() {
   return {
-    type: '@meetapp/FAILURE',
+    type: '@meetup/FAILURE',
   };
 }

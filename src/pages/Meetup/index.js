@@ -16,5 +16,5 @@ export default function Meetup({ match }) {
 }
 
 Meetup.propTypes = {
-  match: PropTypes.shape.isRequired,
+  match: PropTypes.shape().isRequired,
 };
