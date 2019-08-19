@@ -19,8 +19,7 @@ export default function DatePicker({ name, placeholder }) {
         pickerRef.clear();
       },
     });
-    // eslint-disable-next-line
-  }, [ref.current, fieldName]);
+  }, [ref.current, fieldName]); //eslint-disable-line
 
   return (
     <>
