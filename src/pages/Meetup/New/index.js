@@ -15,7 +15,7 @@ const schema = Yup.object().shape({
   file_id: Yup.number().required(),
   title: Yup.string().required('Insira o título do meetup'),
   description: Yup.string().required('Descreva o seu meetup'),
-  date: Yup.date().required('Date is required'),
+  date: Yup.date().required('Insira uma data'),
   location: Yup.string().required('Insira o local'),
 });
 
