@@ -5,16 +5,16 @@ import PropTypes from 'prop-types';
 import { Container } from './styles';
 
 export default function Meetup({ match }) {
-  const { id } = match.params;
-  const meetup = useSelector(state => state.meetup);
+  const meetupId = Number(match.params.id);
+  const meetups = useSelector(state => state.meetup.meetups);
 
-  if (!id) {
+  const meetup = meetups.find(m => m.id === meetupId);
+
+  if (!meetupId) {
     alert('new');
   } else {
-    alert('edit');
+    alert(`edit${meetupId}`);
   }
-
-  console.log(meetup);
 
   return <Container />;
 }
