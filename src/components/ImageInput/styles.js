@@ -32,6 +32,7 @@ export const Container = styled.div`
 
     img {
       height: 100%;
+      background: #eee;
     }
 
     input {
