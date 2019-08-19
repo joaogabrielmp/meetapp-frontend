@@ -2,6 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import ImageInput from '~/components/ImageInput';
+
 import { Container } from './styles';
 
 export default function Meetup({ match }) {
@@ -10,13 +12,11 @@ export default function Meetup({ match }) {
 
   const meetup = meetups.find(m => m.id === meetupId);
 
-  if (!meetupId) {
-    alert('new');
-  } else {
-    alert(`edit${meetupId}`);
-  }
-
-  return <Container />;
+  return (
+    <Container>
+      <ImageInput />
+    </Container>
+  );
 }
 
 Meetup.propTypes = {
