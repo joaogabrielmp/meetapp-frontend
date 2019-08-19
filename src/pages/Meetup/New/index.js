@@ -14,7 +14,7 @@ export default function New({ match }) {
 
   return (
     <Container>
-      <ImageInput />
+      <ImageInput name="file" />
     </Container>
   );
 }
