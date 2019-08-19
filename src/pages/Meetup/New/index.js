@@ -22,8 +22,12 @@ export default function New() {
         <ImageInput name="file" />
 
         <Input name="title" placeholder="Título do meetup" />
-        <Input name="description" placeholder="Descrição completa" />
-
+        <Input
+          name="description"
+          placeholder="Descrição completa"
+          multiline
+          rows="4"
+        />
         <Input name="date" placeholder="Data do meetup" />
         <Input name="location" placeholder="Localização" />
 
