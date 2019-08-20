@@ -49,6 +49,7 @@ export default function Edit({ match }) {
     <Container>
       <Form schema={schema} initialData={currentMeetup} onSubmit={handleSubmit}>
         <ImageInput name="file_id" />
+        {/* <img src={currentMeetup.file_url} alt={currentMeetup.title} /> */}
 
         <Input name="title" placeholder="Título do meetup" />
         <Input name="description" placeholder="Descrição completa" multiline />

@@ -38,7 +38,7 @@ export default function ImageInput() {
 
   return (
     <Container>
-      <label htmlFor="image">
+      <label htmlFor="file">
         {preview ? (
           <img src={preview} alt="" />
         ) : (
@@ -49,7 +49,7 @@ export default function ImageInput() {
         )}
         <input
           type="file"
-          id="image"
+          id="file"
           accept="image/*"
           data-file={file}
           onChange={handleChange}
