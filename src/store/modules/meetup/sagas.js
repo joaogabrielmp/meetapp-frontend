@@ -1,7 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import pt from 'date-fns/locale/pt';
-import { format, parseISO, isBefore } from 'date-fns';
+import { format, parseISO, isBefore, getTime } from 'date-fns';
 import api from '~/services/api';
 import history from '~/services/history';
 import {
@@ -64,20 +64,24 @@ export function* cancelMeetup({ payload }) {
 }
 
 export function* editMeetup({ payload }) {
-  // try {
-  //   const { id, file_id, title, description, date, location } = payload;
-  //   const newData = getTime(date) ? getTime(date) : getTime(parseISO(date));
-  //   const meetup = {
-  //     title, description, date: newData, location, file_id,
-  //     ...Number(file_id) || {}
-  //   };
-  //   yield call(api.put, `meetups/${id}`, meetup);
-  //   toast.success('Meetup editado com sucesso');
-  //   history.push('/');
-  // } catch (error) {
-  //   toast.error(error);
-  //   toast.error('Falha ao atualizar, verifique seus dados!');
-  // }
+  try {
+    const { id, file_id, title, description, date, location } = payload;
+    const newData = getTime(date);
+    const meetup = {
+      title,
+      description,
+      date: newData,
+      location,
+      file_id,
+      ...(Number(file_id) || {}),
+    };
+    yield call(api.put, `meetups/${id}`, meetup);
+    toast.success('Meetup editado com sucesso');
+    history.push('/dashboard');
+  } catch (error) {
+    toast.error(error);
+    toast.error('Falha ao atualizar, verifique seus dados!');
+  }
 }
 
 export default all([
