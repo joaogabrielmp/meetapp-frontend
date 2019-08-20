@@ -67,8 +67,6 @@ export function* editMeetup({ payload }) {
   try {
     const { id, file_id, title, description, date, location } = payload;
 
-    // ...(Number(file_id) || {}),
-
     const meetup = {
       title,
       description,
@@ -76,8 +74,6 @@ export function* editMeetup({ payload }) {
       location,
       file_id,
     };
-
-    console.log(meetup);
 
     yield call(api.put, `meetups/${id}`, meetup);
     toast.success('Meetup editado com sucesso');

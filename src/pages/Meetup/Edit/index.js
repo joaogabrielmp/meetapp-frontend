@@ -14,7 +14,7 @@ import { editMeetupRequest } from '~/store/modules/meetup/actions';
 import { Container } from '../styles';
 
 const schema = Yup.object().shape({
-  // file_id: Yup.number().required(),
+  file_id: Yup.number().required(),
   title: Yup.string().required('Insira o título do meetup'),
   description: Yup.string().required('Descreva o seu meetup'),
   date: Yup.date().required('Insira uma data'),
@@ -37,14 +37,14 @@ export default function Edit({ match }) {
     file: {
       url: meetupFind.file.url,
       id: meetupFind.file.id,
+      path: meetupFind.file.path,
     },
   };
 
   function handleSubmit({ file_id, title, description, date, location }) {
-    alert(file_id);
-    // dispatch(
-    //   editMeetupRequest(meetupId, file_id, title, description, date, location)
-    // );
+    dispatch(
+      editMeetupRequest(meetupId, file_id, title, description, date, location)
+    );
   }
 
   return (
