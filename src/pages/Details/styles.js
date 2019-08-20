@@ -89,7 +89,7 @@ export const Meetup = styled.div`
   }
 
   div {
-    font-size: 15px;
+    font-size: 14px;
     color: #ffffff;
     opacity: 0.6;
     span {

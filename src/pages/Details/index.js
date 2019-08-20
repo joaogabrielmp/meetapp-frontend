@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { MdModeEdit, MdDeleteForever } from 'react-icons/md';
+import { MdModeEdit, MdDeleteForever, MdEvent, MdPlace } from 'react-icons/md';
 
 import { Container, EditButton, CancelButton, Meetup } from './styles';
 
@@ -48,8 +48,14 @@ export default function Details({ match }) {
           organizacao@meetapp.com.br.
         </p>
         <div>
-          <span>{meetup.date}</span>
-          <span>{meetup.location}</span>
+          <span>
+            <MdEvent size={17} />
+            {meetup.date}
+          </span>
+          <span>
+            <MdPlace size={17} />
+            {meetup.location}
+          </span>
         </div>
       </Meetup>
     </Container>
