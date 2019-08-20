@@ -14,6 +14,7 @@ export const Container = styled.div`
     input,
     textarea {
       width: 100%;
+      min-width: 100%;
       background: rgba(0, 0, 0, 0.1);
       border: 0;
       border-radius: 4px;

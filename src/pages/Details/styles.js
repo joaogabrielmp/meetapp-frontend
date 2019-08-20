@@ -92,7 +92,17 @@ export const Meetup = styled.div`
     font-size: 14px;
     color: #ffffff;
     opacity: 0.6;
+    display: flex;
+    flex-direction: row;
     span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       margin-right: 60px;
     }
+
+    svg {
+      margin-right: 5px;
+    }
+  }
 `;
