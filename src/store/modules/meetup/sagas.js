@@ -4,7 +4,12 @@ import pt from 'date-fns/locale/pt';
 import { format, parseISO, isBefore } from 'date-fns';
 import api from '~/services/api';
 import history from '~/services/history';
-import { fetchMeetupSuccess, failureMeetup, newMeetupSuccess } from './actions';
+import {
+  fetchMeetupSuccess,
+  failureMeetup,
+  newMeetupSuccess,
+  cancelMeetupSuccess,
+} from './actions';
 
 export function* fetchMeetup() {
   try {
@@ -44,7 +49,21 @@ export function* newMeetup({ payload }) {
   }
 }
 
+export function* cancelMeetup({ payload }) {
+  try {
+    const { id } = payload;
+
+    yield call(api.delete, 'meetups', { id });
+    toast.success('Meetup cancelado com sucesso');
+    yield put(cancelMeetupSuccess());
+    history.push('/dashboard');
+  } catch (error) {
+    toast.error('Falha ao cancelar o meetup, verifique seus dados!');
+  }
+}
+
 export default all([
   takeLatest('@meetup/FETCH_MEETUPS_REQUEST', fetchMeetup),
   takeLatest('@meetup/NEW_MEETUP_REQUEST', newMeetup),
+  takeLatest('@meetup/CANCEL_MEETUP_REQUEST', cancelMeetup),
 ]);
