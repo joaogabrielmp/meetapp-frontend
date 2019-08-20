@@ -80,4 +80,19 @@ export const Meetup = styled.div`
     margin-bottom: 15px;
     border-radius: 4px;
   }
+
+  p {
+    font-size: 16px;
+    color: #fff;
+    line-height: 32px;
+    margin-bottom: 20px;
+  }
+
+  div {
+    font-size: 15px;
+    color: #ffffff;
+    opacity: 0.6;
+    span {
+      margin-right: 60px;
+    }
 `;

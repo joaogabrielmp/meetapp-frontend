@@ -26,6 +26,7 @@ export default function Details({ match }) {
     <Container>
       <header>
         <h2>{meetup.title}</h2>
+        {/* <div> */}
         <Link to={`/meetup/edit/${meetup.id}`}>
           <EditButton>
             <MdModeEdit size={20} />
@@ -36,6 +37,7 @@ export default function Details({ match }) {
           <MdDeleteForever size={20} />
           Cancelar
         </CancelButton>
+        {/* </div> */}
       </header>
 
       <Meetup>
