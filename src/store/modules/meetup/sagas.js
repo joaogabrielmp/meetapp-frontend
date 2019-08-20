@@ -53,7 +53,7 @@ export function* cancelMeetup({ payload }) {
   try {
     const { id } = payload;
 
-    yield call(api.delete, 'meetups', { id });
+    yield call(api.delete, `meetups/${id}`);
     toast.success('Meetup cancelado com sucesso');
     yield put(cancelMeetupSuccess());
     history.push('/dashboard');

@@ -22,7 +22,7 @@ export default function Details({ match }) {
 
   async function handleCancel() {
     try {
-      dispatch(cancelMeetupRequest());
+      dispatch(cancelMeetupRequest(meetupId));
     } catch (error) {
       toast.error('Houve um erro ao cancelar o meetup');
     }

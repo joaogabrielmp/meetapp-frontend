@@ -33,7 +33,7 @@ export function newMeetupSuccess() {
 export function cancelMeetupRequest(id) {
   return {
     type: '@meetup/CANCEL_MEETUP_REQUEST',
-    payload: id,
+    payload: { id },
   };
 }
 
