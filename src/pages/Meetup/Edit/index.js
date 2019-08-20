@@ -41,13 +41,15 @@ export default function Edit({ match }) {
   };
 
   function handleSubmit({ file_id, title, description, date, location }) {
-    dispatch(editMeetupRequest(file_id, title, description, date, location));
+    dispatch(
+      editMeetupRequest(meetupId, file_id, title, description, date, location)
+    );
   }
 
   return (
     <Container>
       <Form schema={schema} initialData={currentMeetup} onSubmit={handleSubmit}>
-        <ImageInput name="file_id" />
+        <ImageInput name="file" />
 
         <Input name="title" placeholder="Título do meetup" />
         <Input name="description" placeholder="Descrição completa" multiline />

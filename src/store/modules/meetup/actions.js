@@ -43,10 +43,17 @@ export function cancelMeetupSuccess() {
   };
 }
 
-export function editMeetupRequest(file_id, title, description, date, location) {
+export function editMeetupRequest(
+  id,
+  file_id,
+  title,
+  description,
+  date,
+  location
+) {
   return {
     type: '@meetup/EDIT_MEETUP_REQUEST',
-    payload: { file_id, title, description, date, location },
+    payload: { id, file_id, title, description, date, location },
   };
 }
 
