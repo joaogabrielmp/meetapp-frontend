@@ -1,10 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { MdAddCircleOutline } from 'react-icons/md';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
-import { parseISO } from 'date-fns';
 import { zonedTimeToUtc } from 'date-fns-tz';
 
 import ImageInput from '~/components/ImageInput';
@@ -41,7 +40,7 @@ export default function Edit({ match }) {
   console.log(currentMeetup.file_url);
 
   const loading = useSelector(state => state.user.loading);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   function handleSubmit({ file_id, title, description, date, location }) {
     // dispatch(editMeetupRequest(file_id, title, description, date, location));
@@ -63,7 +62,7 @@ export default function Edit({ match }) {
           ) : (
             <>
               <MdAddCircleOutline size={20} />
-              Atualizar meetup
+              Salvar meetup
             </>
           )}
         </button>
