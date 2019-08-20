@@ -1,7 +1,7 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 import pt from 'date-fns/locale/pt';
-import { format, parseISO, isBefore, getTime } from 'date-fns';
+import { format, parseISO, isBefore } from 'date-fns';
 import api from '~/services/api';
 import history from '~/services/history';
 import {
@@ -67,8 +67,7 @@ export function* editMeetup({ payload }) {
   try {
     const { id, file_id, title, description, date, location } = payload;
 
-    // const newData = getTime(date);
-    // date: newData,
+    // ...(Number(file_id) || {}),
 
     const meetup = {
       title,
@@ -76,10 +75,9 @@ export function* editMeetup({ payload }) {
       date,
       location,
       file_id,
-      ...(Number(file_id) || {}),
     };
 
-    console.log(`id: ${id} - meetup: ${meetup}`);
+    console.log(meetup);
 
     yield call(api.put, `meetups/${id}`, meetup);
     toast.success('Meetup editado com sucesso');

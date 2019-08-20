@@ -41,9 +41,10 @@ export default function Edit({ match }) {
   };
 
   function handleSubmit({ file_id, title, description, date, location }) {
-    dispatch(
-      editMeetupRequest(meetupId, file_id, title, description, date, location)
-    );
+    alert(file_id);
+    // dispatch(
+    //   editMeetupRequest(meetupId, file_id, title, description, date, location)
+    // );
   }
 
   return (
