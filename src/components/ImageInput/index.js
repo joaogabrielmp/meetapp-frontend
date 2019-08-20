@@ -6,7 +6,7 @@ import api from '~/services/api';
 import { Container } from './styles';
 
 export default function ImageInput() {
-  const { defaultValue, registerField } = useField('File');
+  const { defaultValue, registerField } = useField('file');
 
   const [file, setFile] = useState(defaultValue && defaultValue.id);
   const [preview, setPreview] = useState(defaultValue && defaultValue.url);

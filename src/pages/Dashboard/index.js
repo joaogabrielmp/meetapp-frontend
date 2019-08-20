@@ -42,7 +42,7 @@ export default function Dashboard() {
                 <strong>{meetup.title}</strong>
                 <div>
                   <span>
-                    {meetup.past ? 'Esse meetup já ocorreu' : meetup.data}
+                    {meetup.past ? 'Esse meetup já ocorreu' : meetup.date}
                   </span>
                   <MdChevronRight size={30} />
                 </div>
