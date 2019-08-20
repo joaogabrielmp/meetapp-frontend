@@ -6,15 +6,19 @@ export const Container = styled.div`
   margin: 30px auto;
 
   header {
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
 
     h2 {
       color: #fff;
       font-weight: bold;
       font-size: 32px;
+    }
+
+    aside {
+      display: flex;
     }
   }
 `;

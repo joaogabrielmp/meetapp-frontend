@@ -12,6 +12,11 @@ export default function Details({ match }) {
 
   const meetup = meetups.find(m => m.id === meetupId);
 
+  async function handleEdit() {
+    // history.push('/dashboard');
+    // <Link to={`/meetup/edit/${meetup.id}`}>
+  }
+
   async function handleCancel() {
     // try {
     //   await api.delete(`meetups/${id}`);
@@ -26,18 +31,16 @@ export default function Details({ match }) {
     <Container>
       <header>
         <h2>{meetup.title}</h2>
-        {/* <div> */}
-        <Link to={`/meetup/edit/${meetup.id}`}>
-          <EditButton>
+        <aside>
+          <EditButton onClick={handleEdit}>
             <MdModeEdit size={20} />
             Editar
           </EditButton>
-        </Link>
-        <CancelButton onClick={handleCancel}>
-          <MdDeleteForever size={20} />
-          Cancelar
-        </CancelButton>
-        {/* </div> */}
+          <CancelButton onClick={handleCancel}>
+            <MdDeleteForever size={20} />
+            Cancelar
+          </CancelButton>
+        </aside>
       </header>
 
       <Meetup>
