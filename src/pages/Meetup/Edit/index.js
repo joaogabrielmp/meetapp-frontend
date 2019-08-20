@@ -22,10 +22,10 @@ const schema = Yup.object().shape({
 });
 
 export default function Edit({ match }) {
-  const dispatch = useDispatch();
-  const loading = useSelector(state => state.user.loading);
   const meetupId = Number(match.params.id);
   const meetups = useSelector(state => state.meetup.meetups);
+  const loading = useSelector(state => state.user.loading);
+  const dispatch = useDispatch();
 
   const meetupFind = meetups.find(m => m.id === meetupId);
 
@@ -48,7 +48,6 @@ export default function Edit({ match }) {
     <Container>
       <Form schema={schema} initialData={currentMeetup} onSubmit={handleSubmit}>
         <ImageInput name="file_id" />
-        {/* <img src={currentMeetup.file_url} alt={currentMeetup.title} /> */}
 
         <Input name="title" placeholder="Título do meetup" />
         <Input name="description" placeholder="Descrição completa" multiline />
