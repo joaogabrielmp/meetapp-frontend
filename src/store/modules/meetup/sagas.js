@@ -66,11 +66,12 @@ export function* cancelMeetup({ payload }) {
 export function* editMeetup({ payload }) {
   try {
     const { id, file_id, title, description, date, location } = payload;
-    const newData = getTime(date);
+    // const newData = getTime(date);
+    // date: newData,
     const meetup = {
       title,
       description,
-      date: newData,
+      date,
       location,
       file_id,
       ...(Number(file_id) || {}),
