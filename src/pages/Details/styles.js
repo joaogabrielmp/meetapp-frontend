@@ -9,7 +9,6 @@ export const Container = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
 
     h2 {
       color: #fff;
@@ -20,54 +19,43 @@ export const Container = styled.div`
     aside {
       display: flex;
     }
-  }
-`;
 
-export const EditButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  margin: 5px 0 0;
-  height: 44px;
-  background: #4dbaf9;
-  color: #fff;
-  border: 0;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background 0.2s;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      margin: 5px 0 0;
+      height: 44px;
+      color: #fff;
+      border: 0;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.2s;
 
-  &:hover {
-    background: ${darken(0.08, '#4DBAF9')};
-  }
+      svg {
+        margin-right: 5px;
+      }
 
-  svg {
-    margin-right: 10px;
-  }
-`;
+      + button {
+        margin-left: 10px;
+      }
 
-export const CancelButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 120px;
-  margin: 5px 0 0;
-  height: 44px;
-  background: #d44059;
-  color: #fff;
-  border: 0;
-  border-radius: 4px;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background 0.2s;
+      &.edit {
+        background: #4dbaf9;
+        &:hover {
+          background: ${darken(0.08, '#4DBAF9')};
+        }
+      }
 
-  &:hover {
-    background: ${darken(0.08, '#D44059')};
-  }
-
-  svg {
-    margin-right: 10px;
+      &.cancel {
+        background: #d44059;
+        &:hover {
+          background: ${darken(0.08, '#d44059')};
+        }
+      }
+    }
   }
 `;
 

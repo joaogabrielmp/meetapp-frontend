@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import { MdModeEdit, MdDeleteForever, MdEvent, MdPlace } from 'react-icons/md';
+import history from '~/services/history';
 
-import { Container, EditButton, CancelButton, Meetup } from './styles';
+import { Container, Meetup } from './styles';
 
 export default function Details({ match }) {
   const meetupId = Number(match.params.id);
@@ -13,8 +13,7 @@ export default function Details({ match }) {
   const meetup = meetups.find(m => m.id === meetupId);
 
   async function handleEdit() {
-    // history.push('/dashboard');
-    // <Link to={`/meetup/edit/${meetup.id}`}>
+    history.push(`/meetup/edit/${meetupId}`);
   }
 
   async function handleCancel() {
@@ -32,14 +31,14 @@ export default function Details({ match }) {
       <header>
         <h2>{meetup.title}</h2>
         <aside>
-          <EditButton onClick={handleEdit}>
+          <button type="button" className="edit" onClick={handleEdit}>
             <MdModeEdit size={20} />
             Editar
-          </EditButton>
-          <CancelButton onClick={handleCancel}>
+          </button>
+          <button type="button" className="cancel" onClick={handleCancel}>
             <MdDeleteForever size={20} />
             Cancelar
-          </CancelButton>
+          </button>
         </aside>
       </header>
 
