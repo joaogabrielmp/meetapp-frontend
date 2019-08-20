@@ -9,7 +9,7 @@ import Dashboard from '~/pages/Dashboard';
 import Profile from '~/pages/Profile';
 import NewMeetup from '~/pages/Meetup/New';
 import EditMeetup from '~/pages/Meetup/Edit';
-import Details from '~/pages/Meetup/Details';
+import Details from '~/pages/Details';
 import Default from '~/pages/Default';
 
 export default function Routes() {
