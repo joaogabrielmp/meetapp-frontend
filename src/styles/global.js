@@ -41,4 +41,8 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  .react-datepicker-wrapper, .react-datepicker__input-container, .react-datepicker-ignore-onclickoutside {
+    width: 100%;
+  }
 `;

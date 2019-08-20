@@ -23,7 +23,7 @@ export const EditButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 168px;
+  width: 120px;
   margin: 5px 0 0;
   height: 44px;
   background: #4dbaf9;
@@ -47,7 +47,7 @@ export const CancelButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 168px;
+  width: 120px;
   margin: 5px 0 0;
   height: 44px;
   background: #d44059;
