@@ -4,6 +4,19 @@ import { darken } from 'polished';
 export const Container = styled.div`
   max-width: 900px;
   margin: 30px auto;
+
+  header {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      color: #fff;
+      font-weight: bold;
+      font-size: 32px;
+    }
+  }
 `;
 
 export const EditButton = styled.button`
@@ -54,4 +67,17 @@ export const CancelButton = styled.button`
   }
 `;
 
-export const Meetup = styled.div``;
+export const Meetup = styled.div`
+  margin-top: 40px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    align-self: center;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+`;

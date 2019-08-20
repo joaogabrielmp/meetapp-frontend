@@ -12,8 +12,6 @@ export default function Details({ match }) {
 
   const meetup = meetups.find(m => m.id === meetupId);
 
-  console.log(meetup);
-
   async function handleCancel() {
     // try {
     //   await api.delete(`meetups/${id}`);
@@ -27,7 +25,7 @@ export default function Details({ match }) {
   return (
     <Container>
       <header>
-        <h2>Meus meetups</h2>
+        <h2>{meetup.title}</h2>
         <Link to={`/meetup/edit/${meetup.id}`}>
           <EditButton>
             <MdModeEdit size={20} />
