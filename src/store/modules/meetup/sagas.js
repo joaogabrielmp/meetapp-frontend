@@ -18,6 +18,7 @@ export function* fetchMeetup() {
     const meetups = response.data.map(meetup => ({
       ...meetup,
       past: isBefore(parseISO(meetup.date), new Date()),
+      defaultDate: meetup.date,
       date: format(parseISO(meetup.date), "dd 'de' MMMM',' 'às' HH'h'", {
         locale: pt,
       }),

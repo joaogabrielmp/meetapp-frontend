@@ -7,9 +7,9 @@ import * as Yup from 'yup';
 import ImageInput from '~/components/ImageInput';
 import DatePicker from '~/components/DatePicker';
 
-import { Container } from '../styles';
-
 import { newMeetupRequest } from '~/store/modules/meetup/actions';
+
+import { Container } from '../styles';
 
 const schema = Yup.object().shape({
   file_id: Yup.number().required(),
