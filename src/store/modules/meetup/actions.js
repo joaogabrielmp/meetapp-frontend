@@ -42,3 +42,16 @@ export function cancelMeetupSuccess() {
     type: '@meetup/CANCEL_MEETUP_SUCCESS',
   };
 }
+
+export function editMeetupRequest(file_id, title, description, date, location) {
+  return {
+    type: '@meetup/EDIT_MEETUP_REQUEST',
+    payload: { file_id, title, description, date, location },
+  };
+}
+
+export function editMeetupSuccess() {
+  return {
+    type: '@meetup/EDIT_MEETUP_SUCCESS',
+  };
+}
