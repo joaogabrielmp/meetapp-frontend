@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
 import { MdAddCircleOutline } from 'react-icons/md';
 import * as Yup from 'yup';
@@ -9,12 +9,12 @@ import { zonedTimeToUtc } from 'date-fns-tz';
 import ImageInput from '~/components/ImageInput';
 import DatePicker from '~/components/DatePicker';
 
-// import { editMeetupRequest } from '~/store/modules/meetup/actions';
+import { editMeetupRequest } from '~/store/modules/meetup/actions';
 
 import { Container } from '../styles';
 
 const schema = Yup.object().shape({
-  file_id: Yup.number().required(),
+  // file_id: Yup.number().required(),
   title: Yup.string().required('Insira o título do meetup'),
   description: Yup.string().required('Descreva o seu meetup'),
   date: Yup.date().required('Insira uma data'),
@@ -22,7 +22,7 @@ const schema = Yup.object().shape({
 });
 
 export default function Edit({ match }) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const loading = useSelector(state => state.user.loading);
   const meetupId = Number(match.params.id);
   const meetups = useSelector(state => state.meetup.meetups);
@@ -35,14 +35,13 @@ export default function Edit({ match }) {
     date: zonedTimeToUtc(meetupFind.defaultDate),
     location: meetupFind.location,
     file_id: meetupFind.file.id,
-    file_url: meetupFind.file.url,
+    file: {
+      url: meetupFind.file.url,
+    },
   };
 
-  console.log(currentMeetup.file_id);
-  console.log(currentMeetup.file_url);
-
   function handleSubmit({ file_id, title, description, date, location }) {
-    // dispatch(editMeetupRequest(file_id, title, description, date, location));
+    dispatch(editMeetupRequest(file_id, title, description, date, location));
   }
 
   return (
