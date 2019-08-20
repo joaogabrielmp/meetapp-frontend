@@ -22,6 +22,8 @@ const schema = Yup.object().shape({
 });
 
 export default function Edit({ match }) {
+  // const dispatch = useDispatch();
+  const loading = useSelector(state => state.user.loading);
   const meetupId = Number(match.params.id);
   const meetups = useSelector(state => state.meetup.meetups);
 
@@ -38,9 +40,6 @@ export default function Edit({ match }) {
 
   console.log(currentMeetup.file_id);
   console.log(currentMeetup.file_url);
-
-  const loading = useSelector(state => state.user.loading);
-  // const dispatch = useDispatch();
 
   function handleSubmit({ file_id, title, description, date, location }) {
     // dispatch(editMeetupRequest(file_id, title, description, date, location));

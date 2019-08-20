@@ -63,8 +63,26 @@ export function* cancelMeetup({ payload }) {
   }
 }
 
+export function* editMeetup({ payload }) {
+  // try {
+  //   const { id, file_id, title, description, date, location } = payload;
+  //   const newData = getTime(date) ? getTime(date) : getTime(parseISO(date));
+  //   const meetup = {
+  //     title, description, date: newData, location, file_id,
+  //     ...Number(file_id) || {}
+  //   };
+  //   yield call(api.put, `meetups/${id}`, meetup);
+  //   toast.success('Meetup editado com sucesso');
+  //   history.push('/');
+  // } catch (error) {
+  //   toast.error(error);
+  //   toast.error('Falha ao atualizar, verifique seus dados!');
+  // }
+}
+
 export default all([
   takeLatest('@meetup/FETCH_MEETUPS_REQUEST', fetchMeetup),
   takeLatest('@meetup/NEW_MEETUP_REQUEST', newMeetup),
   takeLatest('@meetup/CANCEL_MEETUP_REQUEST', cancelMeetup),
+  takeLatest('@meetup/EDIT_MEETUP_REQUEST', editMeetup),
 ]);
