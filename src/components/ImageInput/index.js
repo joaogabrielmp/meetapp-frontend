@@ -23,6 +23,11 @@ export default function ImageInput() {
     }
   }, [ref.current]); // eslint-disable-line
 
+  console.log(file);
+  console.log(preview);
+  console.log('default');
+  console.log(defaultValue);
+
   async function handleChange(e) {
     const data = new FormData();
 

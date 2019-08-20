@@ -34,9 +34,9 @@ export default function Edit({ match }) {
     description: meetupFind.description,
     date: zonedTimeToUtc(meetupFind.defaultDate),
     location: meetupFind.location,
-    file_id: meetupFind.file.id,
     file: {
       url: meetupFind.file.url,
+      id: meetupFind.file.id,
     },
   };
 
