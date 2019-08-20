@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { MdAddCircleOutline, MdChevronRight } from 'react-icons/md';
+
 import { fetchMeetupRequest } from '~/store/modules/meetup/actions';
 
 import { Container, Button, Meetup } from './styles';

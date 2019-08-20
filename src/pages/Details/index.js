@@ -1,14 +1,18 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import { MdModeEdit, MdDeleteForever, MdEvent, MdPlace } from 'react-icons/md';
 import history from '~/services/history';
+
+import { cancelMeetupRequest } from '~/store/modules/meetup/actions';
 
 import { Container, Meetup } from './styles';
 
 export default function Details({ match }) {
   const meetupId = Number(match.params.id);
   const meetups = useSelector(state => state.meetup.meetups);
+  const dispatch = useDispatch();
 
   const meetup = meetups.find(m => m.id === meetupId);
 
@@ -17,13 +21,11 @@ export default function Details({ match }) {
   }
 
   async function handleCancel() {
-    // try {
-    //   await api.delete(`meetups/${id}`);
-    //   toast.success('Meetup foi cancelado com sucesso');
-    //   history.push('/dashboard');
-    // } catch (err) {
-    //   toast.error('Error cancelling meetup, please try again');
-    // }
+    try {
+      dispatch(cancelMeetupRequest());
+    } catch (error) {
+      toast.error('Houve um erro ao cancelar o meetup');
+    }
   }
 
   return (
