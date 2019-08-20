@@ -16,10 +16,11 @@ export default createGlobalStyle`
     outline: 0;
   }
 
-  html, body, #root {
-    /* height: 100%; */
-    min-height: 100vh;
-    background: linear-gradient(180deg, #22202C 0%, #402845 100%);
+  html, body {
+    height: 100%;
+  }
+  #root {
+    min-height: 100%;
   }
 
   body {
