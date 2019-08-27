@@ -5,12 +5,15 @@ Aplicação para cadastros de meetups.
 <h1 align="center">
 
 Dashboard
-![](pages/dashboard.png)
+
+![](examples/dashboard.png)
 
 Detalhes
-![](pages/details.png)
+
+![](examples/details.png)
 
 Novo/Editar
-![](pages/edit.png)
+
+![](examples/edit.png)
 
 </h1>
